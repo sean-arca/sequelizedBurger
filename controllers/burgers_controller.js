@@ -33,11 +33,11 @@ router.post("/burgers/create", function(req, res) {
 
 // put route -> back to index
 router.put("/burgers/update/:id", function(req, res) {
-  db.Burger.update({
+  db.Burger.update(req.body, {
     where: {
       id: req.params.id
-    }}
-  ).then(function(result) {
+    }
+ }).then(function(result) {
     // wrapper for orm.js that using MySQL update callback will return a log to console,
     // render back to index with handle
     console.log(result);
