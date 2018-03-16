@@ -11,14 +11,10 @@ router.get("/", function(req, res) {
 router.get("/burgers", function(req, res) {
   // express callback response by calling burger.selectAllBurger
   db.Burger.findAll({
-    include:[
-        {
-            model: db.Customer
-        }
-    ]
+    include: db.Customer
   }).then(data => {
      let burgerData = data.map(a=>a.dataValues)
-     res.render("index", {burgers: burgerData})
+     res.render("index", {Burgers: burgerData})
   })
 });
 
