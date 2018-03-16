@@ -36,9 +36,7 @@ router.put("/burgers/update/:id", function(req, res) {
   db.Burger.update({
     where: {
       id: req.params.id
-    }}, { 
-      devoured: true
-    }
+    }}
   ).then(function(result) {
     // wrapper for orm.js that using MySQL update callback will return a log to console,
     // render back to index with handle
